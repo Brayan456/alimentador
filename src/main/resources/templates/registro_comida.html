@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro de Comida</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <h1>Registro de Comida Diaria</h1>
+
+    <form th:action="@{/comidas/registrar}" th:object="${comida}" method="post">
+        <div>
+            <label for="mascotaId">ID de la Mascota:</label>
+            <input type="number" id="mascotaId" th:field="*{mascota.id}" required>
+        </div>
+        <div>
+            <label for="descripcion">Descripción de la Comida:</label>
+            <input type="text" id="descripcion" th:field="*{descripcion}" required>
+        </div>
+        <div>
+            <label for="descripcion">Peso(gr):</label>
+            <input type="text" id="peso" th:field="*{peso}" required>
+        </div>
+        <button type="submit">Registrar Comida</button>
+    </form>
+
+    <p th:text="${mensaje}"></p>
+</body>
+</html>
